@@ -27,4 +27,7 @@ function Book() {
 }
 
 // Function to create a new book and add it to the library array
-function addBookToLibrary() {}
+function addBookToLibrary(title, author, pages, read) {
+  const newBook = new Book(title, author, pages, read); // Create a new book object
+  myLibrary.push(newBook); // Add the new book to the library array
+}
