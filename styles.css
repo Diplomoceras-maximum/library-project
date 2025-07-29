@@ -1,0 +1,17 @@
+body {
+  background-color: #e1e8f0;
+}
+
+#library-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.book-card {
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+}
