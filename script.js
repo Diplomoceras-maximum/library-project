@@ -14,6 +14,10 @@ function Book(title, author, pages, read) {
   this.read = read; // Sets the book's read status (true/false)
 }
 
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+};
+
 // Function to create a new book and add it to the library array
 function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read); // Create a new book object
@@ -54,7 +58,9 @@ function displayBooks(books) {
     removeBtn.textContent = "Delete";
     removeBtn.classList.add("remove-button");
     const toggleStatusBtn = document.createElement("button");
-    toggleStatusBtn.textContent = "Mark Read";
+    toggleStatusBtn.textContent = currentBook.read // Toggle text based on status of book
+      ? "Mark Unread"
+      : "Mark Read";
     toggleStatusBtn.classList.add("toggle-button");
 
     settingsElem.appendChild(removeBtn);
@@ -78,9 +84,21 @@ function displayBooks(books) {
       const index = myLibrary.findIndex((book) => book.id === bookId);
 
       // If index exists remove it
-      if (index !== 1) {
+      if (index !== -1) {
         myLibrary.splice(index, 1);
       }
+
+      // Display updated array on page
+      displayBooks(myLibrary);
+    });
+
+    toggleStatusBtn.addEventListener("click", function () {
+      // Get the row id of the book
+      const bookId = row.getAttribute("data-id");
+
+      // Get index of book to change status
+      const index = myLibrary.findIndex((book) => book.id === bookId);
+      myLibrary[index].toggleRead();
 
       // Display updated array on page
       displayBooks(myLibrary);
