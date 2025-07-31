@@ -77,3 +77,18 @@ th {
 .row td {
   padding-top: 1rem;
 }
+
+.row td:last-of-type {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.remove-button {
+  background-color: lightcoral;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+}

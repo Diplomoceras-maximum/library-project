@@ -31,6 +31,7 @@ function displayBooks(books) {
 
     // Create the table row container
     const row = document.createElement("tr");
+    row.setAttribute("data-id", currentBook.id); // Add id attriute to row for removing book with remove button
     row.classList.add("row"); // Add CSS class for styling
 
     // Create elements for each piece of book info
@@ -68,6 +69,22 @@ function displayBooks(books) {
 
     // Add the row to the table
     library.appendChild(row);
+
+    removeBtn.addEventListener("click", function () {
+      // Get the row id of the book
+      const bookId = row.getAttribute("data-id");
+
+      // Get index of book to remove
+      const index = myLibrary.findIndex((book) => book.id === bookId);
+
+      // If index exists remove it
+      if (index !== 1) {
+        myLibrary.splice(index, 1);
+      }
+
+      // Display updated array on page
+      displayBooks(myLibrary);
+    });
   }
 }
 
