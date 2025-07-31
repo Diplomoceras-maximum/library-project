@@ -47,10 +47,14 @@ function displayBooks(books) {
     statusElem.textContent = currentBook.read ? "Read" : "Not read";
 
     const settingsElem = document.createElement("td");
+
+    // Add a remove and a status toggle button to the settings column
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Delete";
+    removeBtn.classList.add("remove-button");
     const toggleStatusBtn = document.createElement("button");
     toggleStatusBtn.textContent = "Mark Read";
+    toggleStatusBtn.classList.add("toggle-button");
 
     settingsElem.appendChild(removeBtn);
     settingsElem.appendChild(toggleStatusBtn);
