@@ -1,5 +1,5 @@
 // Get elements from HTML
-const library = document.querySelector("#library-container");
+const library = document.querySelector("#table-content");
 
 // Array that stores all books
 const myLibrary = [];
@@ -19,40 +19,48 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(newBook); // Add the new book to the library array
 }
 
-// Function to create cards for each book added to the library
+// Function to create rows for each book added to the library
 function displayBooks(books) {
   // Loop through all books in the library
   for (let increment = 0; increment < books.length; increment++) {
     // Put currently selected book into a variable
     let currentBook = books[increment];
 
-    // Create the card container
-    const card = document.createElement("div");
-    card.classList.add("book-card"); // Add CSS class for styling
+    // Create the table row container
+    const row = document.createElement("tr");
+    row.classList.add("row"); // Add CSS class for styling
 
     // Create elements for each piece of book info
-    const titleElem = document.createElement("h3");
+    const titleElem = document.createElement("td");
     titleElem.textContent = currentBook.title;
 
-    const authorElem = document.createElement("p");
-    authorElem.textContent = `${currentBook.author}`;
+    const authorElem = document.createElement("td");
+    authorElem.textContent = currentBook.author;
 
-    const pagesElem = document.createElement("p");
-    pagesElem.textContent = `${currentBook.pages} pages`;
+    const pagesElem = document.createElement("td");
+    pagesElem.textContent = currentBook.pages;
 
-    const statusElem = document.createElement("p");
-    statusElem.textContent = currentBook.read
-      ? "Status: read"
-      : "Status: not read yet";
+    const statusElem = document.createElement("td");
+    statusElem.textContent = currentBook.read ? "Read" : "Not read";
 
-    // Append all elements to the card
-    card.appendChild(titleElem);
-    card.appendChild(authorElem);
-    card.appendChild(pagesElem);
-    card.appendChild(statusElem);
+    const settingsElem = document.createElement("td");
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Delete";
+    const toggleStatusBtn = document.createElement("button");
+    toggleStatusBtn.textContent = "Mark Read";
 
-    // Add the card to the page
-    library.appendChild(card);
+    settingsElem.appendChild(removeBtn);
+    settingsElem.appendChild(toggleStatusBtn);
+
+    // Append all elements to the row
+    row.appendChild(titleElem);
+    row.appendChild(authorElem);
+    row.appendChild(pagesElem);
+    row.appendChild(statusElem);
+    row.appendChild(settingsElem);
+
+    // Add the row to the table
+    library.appendChild(row);
   }
 }
 

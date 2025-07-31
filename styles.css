@@ -11,8 +11,12 @@ body {
 #library-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  border: 1px solid black;
   margin: 2rem;
-  gap: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
 }
 
 #new-book-form {
@@ -57,10 +61,19 @@ body {
   background-color: #005fa3;
 }
 
-.book-card {
-  border: 1px solid black;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
+table {
+  border-collapse: collapse;
+}
+
+thead th {
+  border-bottom: 1px solid black;
+  padding-bottom: 0.5rem;
+}
+
+th {
+  text-align: start;
+}
+
+.row td {
+  padding-top: 1rem;
 }
