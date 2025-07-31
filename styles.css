@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #e1e8f0;
+  /* background-color: #e1e8f0; */
 }
 
 #library-container {
@@ -15,7 +15,7 @@ body {
   margin: 2rem;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3); */
   background-color: #fff;
 }
 
@@ -26,7 +26,7 @@ body {
   border: 1px solid black;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3); */
   background-color: #fff;
 }
 
@@ -47,18 +47,14 @@ body {
 }
 
 #new-book-btn {
-  padding: 0.5rem 1.5rem;
-  font-weight: bold;
-  background-color: #0077cc;
-  color: white;
-  border: none;
+  background-color: 0;
+  border: 1px solid black;
   border-radius: 4px;
+  padding: 0.5rem;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 
 #new-book-btn:hover {
-  background-color: #005fa3;
 }
 
 table {
@@ -86,9 +82,23 @@ th {
 }
 
 .remove-button {
-  background-color: lightcoral;
+  background-color: 0;
   border: 1px solid black;
   border-radius: 4px;
   padding: 0.5rem;
   cursor: pointer;
+}
+
+.remove-button:hover {
+}
+
+.toggle-button {
+  background-color: 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.toggle-button:hover {
 }
