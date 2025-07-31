@@ -1,5 +1,6 @@
 // Get elements from HTML
 const library = document.querySelector("#table-content");
+const newBookBtn = document.querySelector("#new-book-btn");
 
 // Array that stores all books
 const myLibrary = [];
@@ -21,6 +22,8 @@ function addBookToLibrary(title, author, pages, read) {
 
 // Function to create rows for each book added to the library
 function displayBooks(books) {
+  // Clear the page display everytime books are added to prevent duplication
+  library.innerHTML = "";
   // Loop through all books in the library
   for (let increment = 0; increment < books.length; increment++) {
     // Put currently selected book into a variable
@@ -63,6 +66,28 @@ function displayBooks(books) {
     library.appendChild(row);
   }
 }
+
+newBookBtn.addEventListener("click", function (event) {
+  // Prevent form from reloading page
+  event.preventDefault();
+
+  // Get user input from the form inputs
+  const titleValue = document.querySelector("#form-title").value;
+  const authorValue = document.querySelector("#form-author").value;
+  const pagesValue = document.querySelector("#form-pages").value;
+  const statusValue = document.querySelector("#form-status").value;
+
+  // Convert status value into a boolean (true/false) so the correct status is applied through the displayBooks function
+  const isRead = statusValue === "Read";
+
+  // Reset the form when after adding new book
+  const form = document.querySelector("#new-book-form");
+  form.reset();
+
+  // Pass the user inputs through the AddBookToLibrary function into the array and display book on page
+  addBookToLibrary(titleValue, authorValue, pagesValue, isRead);
+  displayBooks(myLibrary);
+});
 
 // Example entries:
 addBookToLibrary("1984", "George Orwell", 328, true);
