@@ -1,3 +1,5 @@
+/* General Styling */
+
 * {
   padding: 0;
   margin: 0;
@@ -10,6 +12,8 @@ body {
   font-size: 16px;
   line-height: 1.5;
 }
+
+/* Book Display Styling */
 
 #library-container {
   display: grid;
@@ -26,54 +30,6 @@ h1 {
   grid-row: 1 / 2;
   margin-bottom: 1rem;
   margin-left: 0.5rem;
-}
-
-#new-book-form {
-  display: grid;
-  gap: 1rem;
-  margin: 2rem;
-  border: 1px solid black;
-  padding: 1rem;
-  border-radius: 8px;
-  /* box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3); */
-  background-color: #fff;
-}
-
-.form-fields {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-.form-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-button {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.form-button p {
-  font-size: 12px;
-  margin-right: 1rem;
-  font-weight: bold;
-}
-
-#new-book-btn {
-  background-color: #f0f0f0;
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-}
-
-#new-book-btn:hover {
-  background-color: lightgrey;
 }
 
 table {
@@ -142,6 +98,58 @@ th {
 img {
   height: 1.5rem;
 }
+
+/* New Book Form Styling */
+
+#new-book-form {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 8px;
+  /* box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3); */
+  background-color: #fff;
+}
+
+.form-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.form-button p {
+  font-size: 12px;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+#new-book-btn {
+  background-color: #f0f0f0;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+#new-book-btn:hover {
+  background-color: lightgrey;
+}
+
+/* Responsive Styling */
 
 @media (max-width: 600px) {
   #library-container,
