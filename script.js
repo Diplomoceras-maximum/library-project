@@ -20,6 +20,12 @@ Book.prototype.toggleRead = function () {
 
 // Function to create a new book and add it to the library array
 function addBookToLibrary(title, author, pages, read) {
+  // Checks that all fields are full before adding book to table
+  if (!title || !author || !pages) {
+    alert("Please fill all required fields: Title, Author, and Pages.");
+    return;
+  }
+
   const newBook = new Book(title, author, pages, read); // Create a new book object
   myLibrary.push(newBook); // Add the new book to the library array
 }
@@ -55,12 +61,26 @@ function displayBooks(books) {
 
     // Add a remove and a status toggle button to the settings column
     const removeBtn = document.createElement("button");
-    removeBtn.textContent = "Delete";
+    const removeSvg = document.createElement("img");
+    removeSvg.src = "icons/remove.svg";
+    removeSvg.alt = "Remove Book";
+    removeBtn.appendChild(removeSvg);
     removeBtn.classList.add("remove-button");
+    //
     const toggleStatusBtn = document.createElement("button");
-    toggleStatusBtn.textContent = currentBook.read // Toggle text based on status of book
-      ? "Mark Unread"
-      : "Mark Read";
+    const toggleSvg = document.createElement("img");
+
+    if (currentBook.read) {
+      toggleSvg.src = "icons/read.svg";
+      toggleSvg.alt = "Mark as Unread";
+      toggleStatusBtn.classList.add("toggle-button", "read");
+    } else {
+      toggleSvg.src = "icons/unread.svg";
+      toggleSvg.alt = "Mark as Read";
+      toggleStatusBtn.classList.add("toggle-button", "unread");
+    }
+
+    toggleStatusBtn.appendChild(toggleSvg);
     toggleStatusBtn.classList.add("toggle-button");
 
     settingsElem.appendChild(removeBtn);
