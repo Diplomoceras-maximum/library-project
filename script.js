@@ -14,6 +14,7 @@ function Book(title, author, pages, read) {
   this.read = read; // Sets the book's read status (true/false)
 }
 
+// Prototype function for status toggle
 Book.prototype.toggleRead = function () {
   this.read = !this.read;
 };
@@ -70,6 +71,7 @@ function displayBooks(books) {
     const toggleStatusBtn = document.createElement("button");
     const toggleSvg = document.createElement("img");
 
+    // Change image, alt text, and class depending on read status of book
     if (currentBook.read) {
       toggleSvg.src = "icons/read.svg";
       toggleSvg.alt = "Mark as Unread";
@@ -79,9 +81,7 @@ function displayBooks(books) {
       toggleSvg.alt = "Mark as Read";
       toggleStatusBtn.classList.add("toggle-button", "unread");
     }
-
     toggleStatusBtn.appendChild(toggleSvg);
-    toggleStatusBtn.classList.add("toggle-button");
 
     settingsElem.appendChild(removeBtn);
     settingsElem.appendChild(toggleStatusBtn);
