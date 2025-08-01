@@ -7,6 +7,8 @@
 
 body {
   /* background-color: #e1e8f0; */
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 #library-container {
@@ -61,11 +63,13 @@ h1 {
 }
 
 #new-book-btn {
+  background-color: #f0f0f0;
   border: 1px solid black;
   border-radius: 4px;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.2s ease;
 }
 
 #new-book-btn:hover {
@@ -102,10 +106,12 @@ th {
 }
 
 .remove-button {
+  background-color: #f0f0f0;
   border: 1px solid black;
   border-radius: 4px;
   padding: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .remove-button:hover {
@@ -113,10 +119,12 @@ th {
 }
 
 .toggle-button {
+  background-color: #f0f0f0;
   border: 1px solid black;
   border-radius: 4px;
   padding: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .toggle-button:hover {
@@ -133,4 +141,35 @@ th {
 
 img {
   height: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  #library-container,
+  #new-book-form {
+    margin: 0;
+    padding: 1rem;
+    border: none;
+    border-radius: 0;
+  }
+
+  #library-container {
+    margin-top: 2rem;
+  }
+
+  body {
+    background-color: #e1e8f0;
+  }
+
+  button {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  #library-container,
+  #new-book-form {
+    max-width: 1000px;
+    margin: 2rem auto;
+  }
 }
