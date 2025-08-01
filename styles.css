@@ -24,6 +24,7 @@ h1 {
   grid-row: 1 / 2;
   text-align: start;
   margin-bottom: 1rem;
+  margin-left: 0.5rem;
 }
 
 #new-book-form {
@@ -77,16 +78,20 @@ thead th {
 
 th {
   text-align: start;
+  padding-left: 0.5rem;
+}
+
+.row:hover {
+  background-color: lightgray;
 }
 
 .row td {
-  padding-top: 1rem;
+  padding: 1rem 0.5rem;
 }
 
 .row td:last-of-type {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
