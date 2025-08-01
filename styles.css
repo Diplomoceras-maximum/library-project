@@ -19,6 +19,12 @@ body {
   background-color: #fff;
 }
 
+h1 {
+  grid-row: 1 / 2;
+  text-align: start;
+  margin-bottom: 1rem;
+}
+
 #new-book-form {
   display: grid;
   gap: 1rem;
@@ -58,6 +64,7 @@ body {
 }
 
 table {
+  grid-row: 2 / 3;
   border-collapse: collapse;
 }
 
