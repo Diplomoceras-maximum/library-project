@@ -2,8 +2,8 @@
 const library = document.querySelector("#table-content");
 const newBookBtn = document.querySelector("#new-book-btn");
 
-// Array that stores all books
-const myLibrary = [];
+// Array that stores all books and loads savedata
+const myLibrary = loadLibrary();
 
 // Constructor function that creates Books
 function Book(title, author, pages, read) {
@@ -29,6 +29,7 @@ function addBookToLibrary(title, author, pages, read) {
 
   const newBook = new Book(title, author, pages, read); // Create a new book object
   myLibrary.push(newBook); // Add the new book to the library array
+  saveLibrary(); // Save every time a new book is added
 }
 
 // Function to create rows for each book added to the library
@@ -113,6 +114,7 @@ function displayBooks(books) {
 
       // Display updated array on page
       displayBooks(myLibrary);
+      saveLibrary(); // Save changes
     });
 
     toggleStatusBtn.addEventListener("click", function () {
@@ -125,6 +127,7 @@ function displayBooks(books) {
 
       // Display updated array on page
       displayBooks(myLibrary);
+      saveLibrary(); // Save changes
     });
   }
 }
@@ -151,10 +154,21 @@ newBookBtn.addEventListener("click", function (event) {
   displayBooks(myLibrary);
 });
 
-// Example entries:
-addBookToLibrary("1984", "George Orwell", 328, true);
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, false);
+// Save function saves current myLibrary array to browser local storage
+function saveLibrary() {
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
 
-// Log library array to console
+// Load function retrieves save data from local storage
+function loadLibrary() {
+  const saveData = JSON.parse(localStorage.getItem("myLibrary")) || [];
+  return saveData.map((book) => Object.assign(new Book(), book));
+}
+
+// Example entries:
+// addBookToLibrary("1984", "George Orwell", 328, true);
+// addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, false);
+
+// Log library array to console and display array on page
 console.log(myLibrary);
 displayBooks(myLibrary);
