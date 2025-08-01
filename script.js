@@ -65,6 +65,7 @@ function displayBooks(books) {
     const removeSvg = document.createElement("img");
     removeSvg.src = "icons/remove.svg";
     removeSvg.alt = "Remove Book";
+    removeBtn.title = "Remove this book";
     removeBtn.appendChild(removeSvg);
     removeBtn.classList.add("remove-button");
     //
@@ -75,10 +76,12 @@ function displayBooks(books) {
     if (currentBook.read) {
       toggleSvg.src = "icons/read.svg";
       toggleSvg.alt = "Mark as Unread";
+      toggleStatusBtn.title = "Mark as Unread";
       toggleStatusBtn.classList.add("toggle-button", "read");
     } else {
       toggleSvg.src = "icons/unread.svg";
       toggleSvg.alt = "Mark as Read";
+      toggleStatusBtn.title = "Mark as Read";
       toggleStatusBtn.classList.add("toggle-button", "unread");
     }
     toggleStatusBtn.appendChild(toggleSvg);
